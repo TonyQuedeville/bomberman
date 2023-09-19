@@ -1,0 +1,38 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    Header: Barre de navigation
+    */
+
+nav  
+    width: 99.4%
+    max-height: 75px
+    margin: 5px 5px 
+    background: $fondNavFoot
+    box-shadow: $shadow
+    border: $borderWhite
+    border-radius: $radius
+    
+    display: flex
+    justify-content: space-around
+    align-items: center 
+    //position: fixed
+    color: $white  
+    height: 48px
+
+#icnSTS
+    width: 30px
+    animation: pendule 2s linear infinite
+
+@keyframes pendule
+    0% 
+        //-webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+    25%
+        transform: rotate(10deg)
+    75%
+        transform: rotate(-10deg)
+    100% 
+        transform: rotate(0deg)

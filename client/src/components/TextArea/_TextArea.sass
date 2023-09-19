@@ -1,0 +1,34 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    Input Textarea
+    */
+
+//-------------------------------------------------------
+
+#message-tchat-contenair
+    display: flex
+    align-items: center
+    justify-content: center
+
+textarea 
+    margin: 2px
+    margin-left: 0px
+    padding: 2px
+    background: $fondElement
+    box-shadow: $shadow
+    border: $borderWhite
+    border-radius: $radius
+    font-family: Bookman Old Style
+    color: $white
+
+    &:disabled 
+        cursor: not-allowed
+
+    &:hover
+        background: $fondElementHoover
+        box-shadow: $light
+        cursor: pointer
+

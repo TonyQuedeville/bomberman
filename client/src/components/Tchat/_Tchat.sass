@@ -1,0 +1,82 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    Tchat: Fenêtre de tchat
+    */
+
+//-------------------------------------------------------
+
+#tchatspace
+    display: flex
+    justify-content: top
+    align-items: center 
+    flex-direction: column
+
+    width: 25%
+    height: 93vh
+    margin-left: 2px
+
+    background: $fondContainerTrans
+    box-shadow: $shadow
+    border: $borderWhite
+    border-radius: $radius
+
+#users-conv
+    display: flex
+    justify-content: center
+    align-items: center 
+    flex-direction: row
+
+    margin: 2px
+    width: 98%
+    height: 86vh
+
+#users
+    display: flex
+    justify-content: top
+    align-items: center 
+    flex-direction: column
+
+    margin-left: 2px
+    width: 30%
+    height: 99%
+
+    box-shadow: $gridEditor
+    border-radius: $radius
+
+#conversation
+    display: flex
+    flex-direction: column-reverse
+    justify-content: end
+    align-items: end
+
+    width: 70%
+    height: 100%
+
+    overflow-y: scroll
+    overflow-x: hidden
+    scrollbar-width: none 
+    -ms-overflow-style: none 
+    &::-webkit-scrollbar 
+        width: 0
+    
+    box-shadow: $shadow
+    border-radius: $radius
+
+.message
+    display: flex
+    justify-content: start
+    align-items: start 
+    flex-direction: column
+
+    width: 94%
+    margin: 5px
+
+    box-shadow: $gridEditor
+    border-radius: $radius
+
+.info-message
+    color: $blue
+    margin: 2px 20px

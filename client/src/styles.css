@@ -1,0 +1,646 @@
+@charset "UTF-8";
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Import des _fichiers.sass pour compilation de styles.css
+ *  */
+/* abstracts (variables, mixin, fonction, placeholder pour extend) */
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberan
+ *  15-09-2023
+ *
+ *  Variables
+ *  */
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  mixins
+ *  */
+/* Base (police, norme, box-sizing, ...) */
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Projet Univers 01
+ *  15-09-2023
+ *
+ *  Initilisation de l'application
+ *  */
+html, body {
+  margin: 0px;
+  background: linear-gradient(0deg, rgba(13, 40, 44, 0.5) 0%, rgba(3, 21, 22, 0.5) 100%);
+  background: url("assets/img/spaceship.jpg");
+  background-size: cover;
+  overflow: hidden;
+}
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  html, body {
+    overflow: auto;
+  }
+}
+@media screen and (orientation: portrait) {
+  html, body {
+    overflow: auto;
+  }
+}
+
+#root {
+  height: 100vh;
+}
+
+#galaxy01 {
+  position: absolute;
+  left: -15%;
+  top: 10%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50px 10px rgba(255, 255, 255, 0.4745098039);
+  width: 60%;
+  height: 75%;
+  opacity: 0.5;
+  animation: galaxy-rotate 200s linear infinite;
+}
+
+#loadingpage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 999;
+}
+
+#loadingLogo {
+  margin: 20px;
+  animation: logo-rotate 2s linear infinite;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav {
+  height: 48px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  height: 93vh;
+  justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  main {
+    margin-top: 5px;
+    flex-direction: row;
+    width: 100%;
+    height: 98vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  main {
+    flex-direction: column;
+    height: 97vh;
+  }
+}
+
+label {
+  margin: 2px;
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Projet Univers 01
+ *  15-09-2023
+ *
+ *  Initialisation de la typographie des éléments textuels
+ *  */
+h1, h2, h3, h4, h5, h6, label, p, a {
+  font-family: Bookman Old Style;
+  text-shadow: 0.5rem, 0.5rem, rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  margin: 10px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4, input, label {
+  font-size: 1.2rem;
+}
+
+h5, p, a {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.7rem;
+}
+
+p {
+  margin: 5px;
+}
+@media screen and (orientation: portrait) {
+  p {
+    font-size: 2rem;
+  }
+}
+
+.pbleu {
+  color: rgb(99, 185, 196);
+}
+
+/* Components (button, select, input, ... ) */
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Champ d'entrée textuel. Type text par défaut, ou nombre, date, ect ...
+ *  */
+input {
+  height: 30px;
+  margin: 10px 10px;
+  padding-left: 10px;
+  background: linear-gradient(0deg, #1e1f20 0%, #021518 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  font-family: Bookman Old Style;
+  color: rgb(255, 255, 255);
+}
+input:hover {
+  background: linear-gradient(0deg, rgb(27, 80, 82) 0%, rgb(8, 39, 41) 100%);
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+input[type=number] {
+  width: 4rem;
+  height: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Input Textarea
+ *  */
+#message-tchat-contenair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea {
+  margin: 2px;
+  margin-left: 0px;
+  padding: 2px;
+  background: linear-gradient(0deg, #1e1f20 0%, #021518 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  font-family: Bookman Old Style;
+  color: rgb(255, 255, 255);
+}
+textarea:disabled {
+  cursor: not-allowed;
+}
+textarea:hover {
+  background: linear-gradient(0deg, rgb(27, 80, 82) 0%, rgb(8, 39, 41) 100%);
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Bouton: 
+ *  */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  margin: 10px 10px;
+  padding: 10px 10px;
+  background: linear-gradient(0deg, #1e1f20 0%, #021518 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+}
+button:not(:disabled):hover {
+  background: linear-gradient(0deg, rgb(27, 80, 82) 0%, rgb(8, 39, 41) 100%);
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+button:disabled {
+  color: rgb(33, 112, 136);
+}
+
+/* Layout (header, footer, main, ...) */
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Header: Barre de navigation
+ *  */
+nav {
+  width: 99.4%;
+  max-height: 75px;
+  margin: 5px 5px;
+  background: linear-gradient(0deg, rgba(19, 79, 83, 0.8) 0%, rgba(6, 29, 31, 0.8) 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  height: 48px;
+}
+
+#icnSTS {
+  width: 30px;
+  animation: pendule 2s linear infinite;
+}
+
+@keyframes pendule {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Home page:
+ *  */
+@keyframes galaxy-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 99.4%;
+  height: 92vh;
+  margin: 5px 5px;
+}
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  #home {
+    margin-top: 5px;
+    flex-direction: row;
+    width: 100%;
+    height: 98vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  #home {
+    flex-direction: column;
+    height: 97vh;
+  }
+}
+
+.narration {
+  max-width: 80vw;
+  margin: 20px;
+  text-align: center;
+  width: 99.4%;
+  max-width: 700px;
+  margin: 5px 5px;
+  background: linear-gradient(0deg, rgba(19, 79, 83, 0.8) 0%, rgba(6, 29, 31, 0.8) 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+}
+.narration h4 {
+  color: rgb(194, 197, 24);
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Game: Espace de jeu
+ *  */
+#gamepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 99.4%;
+  height: 91.5vh;
+  margin: 5px 5px;
+}
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  #gamepage {
+    margin-top: 5px;
+    flex-direction: row;
+    width: 100%;
+    height: 98vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  #gamepage {
+    flex-direction: column;
+    height: 97vh;
+  }
+}
+
+#gamespace {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(99, 185, 196);
+  font-size: 3rem;
+  width: 85%;
+  height: 93vh;
+  touch-action: manipulation;
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  grille de jeu
+ *  */
+#gridspace {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(99, 185, 196);
+  font-size: 3rem;
+  width: 85%;
+  height: 93vh;
+  touch-action: manipulation;
+  border-radius: 0.5rem;
+}
+
+#grille {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  color: rgb(99, 185, 196);
+  font-size: 0.7rem;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, rgba(13, 40, 44, 0.5) 0%, rgba(3, 21, 22, 0.5) 100%);
+}
+
+.refcase {
+  position: absolute;
+  left: auto;
+  top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+
+.case {
+  position: absolute;
+  left: auto;
+  top: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer, #numLevel {
+  translate: 0 -5px;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 1rem;
+  color: rgb(99, 185, 196);
+  padding: 1px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.829) 50%, rgba(43, 42, 42, 0.308) 100%);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+}
+
+.B {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.829) 50%, rgba(43, 42, 42, 0.308) 100%);
+  background-size: 100%;
+  background-position: 50% 47%;
+  opacity: 0.5;
+  scale: 0.9;
+}
+
+.P {
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  border-radius: 50%;
+  scale: 0.9;
+}
+.P img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: galaxy-rotate 30s linear infinite;
+}
+
+.PE {
+  box-shadow: 0px 0px 50px 10px rgba(255, 255, 255, 0.4745098039);
+  border-radius: 50%;
+}
+.PE img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: galaxy-rotate 30s linear infinite;
+}
+
+@keyframes planete-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.E {
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transition: 250ms;
+  transform: translate(0, 0);
+  scale: 0.7;
+}
+.E img {
+  width: 110%;
+  height: 110%;
+  border-radius: 50%;
+  animation: planete-rotate 20s linear infinite;
+}
+
+.F {
+  z-index: 2;
+  background: url("assets/img/starship.png");
+  background-size: 130%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 250ms;
+  transform: rotate(0deg) translate(0, 0);
+  scale: 1;
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Tableau d'affichage du jeu et des scores.
+ *  */
+#scoreboard {
+  width: 14%;
+  height: 92vh;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  flex-direction: column;
+  color: rgb(99, 185, 196);
+  font-size: 0.7rem;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, rgba(13, 40, 44, 0.5) 0%, rgba(3, 21, 22, 0.5) 100%);
+}
+
+/*  Tony Quedeville : tquedevi
+ *  Zone01: Bomberman
+ *  15-09-2023
+ *
+ *  Tchat: Fenêtre de tchat
+ *  */
+#tchatspace {
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  height: 93vh;
+  margin-left: 2px;
+  background: linear-gradient(0deg, rgba(13, 40, 44, 0.5) 0%, rgba(3, 21, 22, 0.5) 100%);
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+}
+
+#users-conv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 2px;
+  width: 98%;
+  height: 86vh;
+}
+
+#users {
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 2px;
+  width: 30%;
+  height: 99%;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  border-radius: 0.5rem;
+}
+
+#conversation {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: end;
+  align-items: end;
+  width: 70%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  box-shadow: 6px 6px 15px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+#conversation::-webkit-scrollbar {
+  width: 0;
+}
+
+.message {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 94%;
+  margin: 5px;
+  box-shadow: 0px 0px 5px 1px #76e6e6;
+  border-radius: 0.5rem;
+}
+
+.info-message {
+  color: rgb(33, 112, 136);
+  margin: 2px 20px;
+}
+
+/* Pages (specifique à la page) */
+/* Thèmes */
+/* Vendors (bootsrtap, jquery, ...) *//*# sourceMappingURL=styles.css.map */

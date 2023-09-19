@@ -1,0 +1,28 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    Bouton: 
+    */
+
+button
+    display: flex
+    justify-content: center
+    align-items: center
+    color: $white
+    margin: 10px 10px  
+    padding: 10px 10px  
+    background: $fondElement
+    box-shadow: $shadow
+    border: $borderWhite
+    border-radius: $radius
+
+    &:not(:disabled)
+        &:hover
+            background: $fondElementHoover
+            box-shadow: $light
+            cursor: pointer
+
+    &:disabled
+        color: $blue

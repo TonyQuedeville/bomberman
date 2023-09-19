@@ -1,0 +1,109 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    mixins
+    */
+
+// Responsive: Media queries
+// = equivaux à @mixin , + equivaux à @include
+=small
+    @media screen and (max-width: 640px)
+        @content
+
+=medium
+    @media screen and (max-width: 768px) // mon tel 1600 x 720px
+        @content
+
+=large
+    @media screen and (max-width: 1024px)
+        @content
+
+=xl
+    @media screen and (max-width: 1280px)
+        @content
+
+=xxl
+    @media screen and (max-width: 1536px)
+        @content   
+
+=portrait
+    @media screen and (orientation: portrait)
+        @content
+
+=paysage
+    @media screen and (orientation: landscape)
+        @content
+
+
+// Header, Nav, Footer
+// @mixin navfoot
+//     width: 99.4%
+//     max-height: 75px
+//     margin: 5px 5px 
+//     background: $fondNavFoot
+//     box-shadow: $shadow
+//     border: $borderWhite
+//     border-radius: $radius
+    
+//     display: flex
+//     justify-content: space-around
+//     align-items: center 
+//     //position: fixed
+//     color: $white
+
+// @mixin inputText
+//     width: 50%
+//     height: 30px
+//     margin: 10px 10px  
+//     background: $fondElement
+//     box-shadow: $shadow
+//     border: $borderWhite
+//     border-radius: $radius
+//     font-family: Bookman Old Style
+
+//     &:hover
+//         background: $fondElementHoover
+//         box-shadow: $light
+//         cursor: pointer
+
+// @mixin buttonSelect
+//     display: flex
+//     justify-content: center
+//     align-items: center
+//     color: $white
+
+//     margin: 10px 10px  
+//     padding: 10px 10px  
+//     background: $fondElement
+//     box-shadow: $shadow
+//     border: $borderWhite
+//     border-radius: $radius
+
+//     &:hover
+//         background: $fondElementHoover
+//         box-shadow: $light
+//         cursor: pointer
+
+// @mixin rightPanel
+//     //width: 23vw
+//     //height: 86vh
+//     padding: 6px
+//     margin: 5px 5px 
+//     //background: $fondContainerTrans
+//     border: $borderWhite
+//     border-radius: $radius
+    
+//     display: flex
+//     align-items: center
+//     //justify-content: center
+//     flex-direction: column  
+
+// @mixin spaceGame
+//     //max-width: $maxWidth
+//     margin: 5px 5px 
+//     border: $borderWhite
+//     border-radius: $radius
+//     background: $fondContainerTrans
+    

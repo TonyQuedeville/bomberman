@@ -1,0 +1,36 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Projet Univers 01
+    15-09-2023
+
+    Initialisation de la typographie des éléments textuels
+    */
+
+h1, h2, h3, h4, h5, h6, label, p, a  
+    font-family: Bookman Old Style
+    text-shadow: 0.5rem, 0.5rem, rgba(0, 0, 0, 1)
+    color: $white
+    margin: 10px
+
+h1
+    font-size: nth($fontSizes, 1)
+h2
+    font-size: nth($fontSizes, 2)
+h3
+    font-size: nth($fontSizes, 3)
+h4 , input, label
+    font-size: nth($fontSizes, 4)
+h5, p, a
+    font-size: nth($fontSizes, 5)
+h6
+    font-size: nth($fontSizes, 6)
+
+p
+    margin: 5px
+    
+    +portrait
+        font-size: nth($fontSizes, 2)
+
+.pbleu
+    color: $lightblue
+

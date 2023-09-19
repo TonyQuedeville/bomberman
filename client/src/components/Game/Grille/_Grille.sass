@@ -1,0 +1,131 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    grille de jeu
+    */
+
+//-------------------------------------------------------
+
+#gridspace // espace de jeu
+    z-index: 1
+    display: flex
+    align-items: center
+    justify-content: center
+    color:  $lightblue
+    font-size: nth($fontSizes, 1)
+    width: 85%
+    height: 93vh
+    touch-action: manipulation
+
+    // background: $fondContainerTrans
+    // box-shadow: $shadow
+    // border: $borderWhite
+    border-radius: $radius
+
+#grille
+    display: flex
+    align-items: top
+    justify-content: center
+    color:  $lightblue
+    font-size: nth($fontSizes, 6)
+    position: relative
+    box-shadow: $gridEditor
+    border-radius: $radius
+    background: $fondContainerTrans
+
+// ------------------------------------
+
+.refcase
+    position: absolute
+    left: auto
+    top: auto
+    display: flex
+    align-items: center
+    justify-content: center
+    box-shadow: $shadow
+    border-radius: $radius
+
+.case
+    position: absolute
+    left: auto
+    top: auto
+    border-radius: $brickRadius
+    display: flex
+    justify-content: center
+    align-items: center
+
+#timer, #numLevel
+    translate: 0 -5px
+    height: fit-content
+    font-size: nth($fontSizes, 5)
+    color:  $lightblue
+    padding: 1px 10px
+    background: $fondBlackTrans
+    border-radius: $brickRadius
+    box-shadow: $gridEditor
+
+.B
+    border-radius: $brickRadius
+    box-shadow: $gridEditor
+    background: $fondBlackTrans 
+    background-size: 100%
+    background-position: 50% 47%
+    opacity: 0.5
+    scale: 0.9
+
+.P
+    box-shadow: $gridEditor 
+    border-radius: $rond
+    scale: 0.9
+    img
+        width: 100%
+        height: 100%
+        border-radius: $rond 
+        animation: galaxy-rotate 30s linear infinite
+
+.PE
+    box-shadow: $softLight
+    border-radius: $rond
+    img
+        width: 100%
+        height: 100%
+        border-radius: $rond 
+        animation: galaxy-rotate 30s linear infinite
+
+
+@keyframes planete-rotate 
+    0% 
+        //-webkit-transform: translate3d(0,0,0) rotate(0deg)
+        transform: rotate(0deg)
+    100% 
+        transform: rotate(-360deg)
+
+.E
+    z-index: 1
+    //background: $fondBlue
+    overflow: hidden
+    box-shadow: $shadow
+    border-radius: $rond 
+    transition: 250ms
+    transform: translate(0,0)
+    scale: 0.7
+
+    img
+        width: 110%
+        height: 110%
+        border-radius: $rond 
+        animation: planete-rotate 20s linear infinite
+
+.F
+    z-index: 2
+    background: url('assets/img/starship.png')
+    background-size: 130%
+    background-repeat: no-repeat
+    background-position: center
+    //border-radius: $rond
+    //box-shadow: $light
+    transition: 250ms
+    transform:  rotate(0deg) translate(0,0)
+    scale: 1

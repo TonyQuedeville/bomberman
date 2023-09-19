@@ -1,0 +1,31 @@
+/*
+    Tony Quedeville : tquedevi
+    Zone01: Bomberman
+    15-09-2023
+
+    Champ d'entrée textuel. Type text par défaut, ou nombre, date, ect ...
+    */
+
+input
+    // width: 50%
+    height: 30px
+    margin: 10px 10px  
+    padding-left: 10px
+    background: $fondElement
+    box-shadow: $shadow
+    border: $borderWhite
+    border-radius: $radius
+    font-family: Bookman Old Style
+    color: $white
+
+    &:hover
+        background: $fondElementHoover
+        box-shadow: $light
+        cursor: pointer
+
+
+input[type="number"]
+    width: 4rem
+    height: 2rem
+    color: $white
+    //font-size: nth($fontSizes, 2)

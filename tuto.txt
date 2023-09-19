@@ -1,0 +1,54 @@
+--- Application client (Front) ---
+
+Creation du projet reactJS:
+  1 - lancer "yarn create react-app client" à la racine
+  2 - "cd client" -> "yarn start" pour lancer l'appli front coté client
+    - "npm install react@latest react-dom@latest" (Optionnel) éventuellement pour mettre à jour la dernière version de react.
+  3 - "yarn" pour installer les dépendences
+  4 - "yarn add react-router-dom" Librarie Router
+  5 - "yarn add prop-types" Pour le typage des composants
+
+Redux: (Providers)
+  1 - "yarn add redux react-redux"
+  2 - Créer un dossier: src/redux
+  3 - Créer le fichier: src/redux/ store.js
+  4 - Créer un dossier: src/redux/reducers
+  5 - Créer vos fichiers: src/redux/reducers/ nomReducer.js
+  6 - Créer un fichier: src/redux/reducers/ index.js pour combiner l'ensemble des reducers du projet
+  7 - Connecter votre application React avec Redux en enveloppant votre composant racine (généralement App.js) 
+  avec le <Provider> fourni par React Redux dans le fichier src/index.js 
+  8 - "yarn add @reduxjs/toolkit"
+
+Sass: (css)
+  "yarn add sass" ou "npm install sass"
+
+Socket.io: 
+  1 - cd client
+  2 - "npm install socket.io-client"
+
+
+
+--- Application Server (Back) ---
+
+Node.js:
+  1 - node -v pour vérifier la version installé (v16.20.2 pour ce projet)
+  2 - Retourner à la cine. "cd .."
+  3 - Créer un dossier "server" puis "cd server"
+  4 - "npm init -y" créé le package.json qui contient des informations sur le projet.
+  5 - "npm install express socket.io"
+  6 - "node index.js" Lancer le server
+
+
+
+--- Script de lancement des applications ---
+
+Concurrently:
+  Permet d'exécuter à la fois le serveur Node.js et l'application cliente (frontend) avec une seule commande
+  1 - "npm install concurrently --save-dev"
+  2 - Completer le script dans package.json de la racine comme ceci:
+  "scripts": {
+    "sass:watch": "sass --watch src/styles/style.scss:src/styles/style.css"
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start-server": "node server/index.js",
+    "start-client": "cd client && yarn start"
+  }

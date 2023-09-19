@@ -1,0 +1,67 @@
+sass/
+|
+|– abstracts/
+|   |– _variables.scss    // Définition de variables Sass
+|   |– _functions.scss    // Fonctions Sass
+|   |– _mixins.scss       // Mixins Sass
+|
+|– base/
+|   |– _reset.scss        // Réinitialisation des styles
+|   |– _typography.scss   // Styles typographiques de base
+|   |– ...
+|
+|– components/
+|   |– _button.scss       // Styles spécifiques aux boutons
+|   |– _navbar.scss       // Styles spécifiques à la barre de navigation
+|   |– ...
+|
+|– layout/
+|   |– _grid.scss         // Styles de la grille de mise en page
+|   |– _header.scss       // Styles de l'en-tête
+|   |– _footer.scss       // Styles du pied de page
+|   |– ...
+|
+|– pages/
+|   |– _home.scss         // Styles spécifiques à la page d'accueil
+|   |– _contact.scss      // Styles spécifiques à la page de contact
+|   |– ...
+|
+|– themes/
+|   |– _theme.scss        // Styles pour différents thèmes
+|   |– ...
+|
+|– vendors/
+|   |– _bootstrap.scss    // Styles Bootstrap (si utilisé)
+|   |– ...
+|
+`– main.scss               // Point d'entrée principal
+
+----------------------------------------------------------------
+
+Projet Bomberman
+
+src/
+|
+|– assets/
+|   |– img/
+|   |– icn/
+|
+|– components/
+|   |– Footer/
+|   |   |– Footer.sass    
+|   |   |– Footer.jsx    
+|   |– Header/
+|   |   |– Header.sass    
+|   |   |– Header.jsx  
+|   |– ...
+|
+|– styles/
+|   |– abstracts/
+|   |   |– _reset.scss        
+|   |   |– _typography.scss
+|   |
+|   |– base/
+|   |   |– ...
+|   |
+|   |– styles.sass
+...
