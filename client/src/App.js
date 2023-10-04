@@ -61,7 +61,7 @@ function App() {
   return (
     <Router>
           <Header />
-          <Events events={ tchatEvents } />
+          {/* <Events events={ tchatEvents } /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/game" element={<Game />} />

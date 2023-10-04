@@ -13,7 +13,13 @@ const initialValues = {
     gameId: 1,
     isPlay: false,
     players: [],
-    nbPlayer: 0
+    nbPlayers: 0,
+    nbRow: 13,
+    nbCol: 15,
+    blocks: [],
+    elements: [],
+    gameGrid:[],
+    bonuss:{}
 }
 
 const gameSlice = createSlice({
@@ -21,22 +27,39 @@ const gameSlice = createSlice({
     initialState: initialValues,
     reducers: {
         updateGameData: (state, action) => {
-            return {
-            ...state,
-            ...action.payload,
+            const { blocks, elements } = action.payload;
+            let gameGrid = [];
+            
+            if (blocks && elements) {
+                gameGrid = transposeArray(mergeArrays(blocks, elements));
             }
+        
+            return {
+                ...state,
+                ...action.payload,
+                blocks,
+                elements,
+                gameGrid,
+            };
         },
 
         setPlayers: (state, action) => {
             state.players = action.payload
+        },
+        
+        setNbPlayers: (state, action) => {
+            state.nbPlayers = action.payload
         },
 
         setIsPlay: (state, action) => {
             state.isPlay = action.payload
         },
 
-        setNbPlayer: (state, action) => {
-            state.nbPlayer = action.payload
+        setBigBangIds: (state, action) => {
+            state.bigBangIds.push(action.payload)
+        },
+        removeBigBangIds: (state, action) => {
+            state.bigBangIds = state.bigBangIds.filter((id) => id !== action.payload);
         },
 
     },
@@ -45,8 +68,54 @@ const gameSlice = createSlice({
 export const { 
     updateGameData, 
     setIsPlay,
+    setNbPlayers,
     setPlayers,
-    setNbPlayer, 
+    setBigBangIds,
 } = gameSlice.actions
 
 export default gameSlice.reducer
+
+
+
+/* --- Fonctions --- */
+
+function transposeArray(array) {
+    const transposedArray = [];
+    const numRows = array.length;
+    const numCols = array[0].length;
+
+    for (let col = 0; col < numCols; col++) {
+        const newRow = [];
+        for (let row = 0; row < numRows; row++) {
+        newRow.push(array[row][col]);
+        }
+        transposedArray.push(newRow);
+    }
+
+    return transposedArray;
+}
+
+const mergeArrays = (array1, array2) => {
+    // Vérifiez si les deux tableaux ont les mêmes dimensions
+    if (array1.length !== array2.length || array1[0].length !== array2[0].length) {
+        throw new Error("Les tableaux n'ont pas les mêmes dimensions.");
+    }
+
+    const mergedArray = [];
+
+    // Parcourez les lignes du tableau
+    for (let i = 0; i < array1.length; i++) {
+        const mergedRow = [];
+
+        // Parcourez les colonnes du tableau
+        for (let j = 0; j < array1[0].length; j++) {
+            // Ajoutez les éléments correspondants des deux tableaux
+            mergedRow.push(array1[i][j] + array2[i][j]); // Vous pouvez ajuster la logique ici
+        }
+
+        // Ajoutez la ligne fusionnée au tableau résultant
+        mergedArray.push(mergedRow);
+    }
+
+    return mergedArray;
+};

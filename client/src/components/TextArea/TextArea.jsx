@@ -21,7 +21,7 @@ const TextArea = (props) => {
     
     // Empèche l'injection de code
     const validateInput = (input) => {
-        const regex = /[<>{}()*+=#&%!,;:]/
+        const regex = /[<>{}()*+=#&%,;:]/
         if (regex.test(input)) {
             return input.replace(regex, '')
         }

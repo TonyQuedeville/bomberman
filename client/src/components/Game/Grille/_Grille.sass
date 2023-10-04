@@ -16,116 +16,341 @@
     color:  $lightblue
     font-size: nth($fontSizes, 1)
     width: 85%
-    height: 93vh
-    touch-action: manipulation
-
-    // background: $fondContainerTrans
-    // box-shadow: $shadow
-    // border: $borderWhite
+    height: 91.5vh
+    margin: 2px -2px 2px 4px
     border-radius: $radius
 
 #grille
+    width: 98.6%
+    height: 100%
     display: flex
+    position: relative
     align-items: top
     justify-content: center
     color:  $lightblue
     font-size: nth($fontSizes, 6)
-    position: relative
-    box-shadow: $gridEditor
     border-radius: $radius
-    background: $fondContainerTrans
+    
 
 // ------------------------------------
 
-.refcase
+// --- Grille ---
+.col
     position: absolute
-    left: auto
-    top: auto
+    width: (100% / 15)
+    height: 100%
     display: flex
     align-items: center
     justify-content: center
-    box-shadow: $shadow
-    border-radius: $radius
 
 .case
     position: absolute
-    left: auto
-    top: auto
-    border-radius: $brickRadius
+    width: 100%
+    height: (100% / 13)
+    display: flex
+    align-items: center
+    justify-content: center
+
+// --- Murs ---
+.block
+    width: 70%
+    padding-top: 35%
+    padding-bottom: 35%
+    margin: 5px
     display: flex
     justify-content: center
     align-items: center
-
-#timer, #numLevel
-    translate: 0 -5px
-    height: fit-content
-    font-size: nth($fontSizes, 5)
-    color:  $lightblue
-    padding: 1px 10px
-    background: $fondBlackTrans
-    border-radius: $brickRadius
-    box-shadow: $gridEditor
-
-.B
-    border-radius: $brickRadius
+    border-radius: $radius
     box-shadow: $gridEditor
     background: $fondBlackTrans 
-    background-size: 100%
-    background-position: 50% 47%
     opacity: 0.5
-    scale: 0.9
+    animation: block-animate 15s ease-in-out infinite
 
-.P
-    box-shadow: $gridEditor 
+@keyframes block-animate
+    0% 
+        transform: scale(1) translate(0,0) rotate(0deg)
+        border-radius: $radius 
+        box-shadow: $gridEditor
+    25%
+        transform: scale(1.1) translate(5px,-2px) rotate(3deg)
+        border-radius: $radius * 2
+        box-shadow: $shadow
+    50% 
+        transform: scale(0.5) translate(2px,5px) rotate(-3deg)
+        border-radius: $radius / 4
+        box-shadow: $blackLigth
+    75% 
+        transform: scale(1.1) translate(-5px,-2px) rotate(3deg)
+        border-radius: $radius * 3
+        box-shadow: $shadow
+    100% 
+        transform: scale(1) translate(0,0) rotate(0deg)
+        border-radius: $radius
+        box-shadow: $gridEditor
+
+// --- Joueurs ---
+.Pl
+    position: absolute
+    z-index: 2
+    // font-size: nth($fontSizes, 5)
+    transition: left 2s ease-in-out, top 2s ease-in-out 
+    width: (100% / 15)
+    padding-top: (2% / 6.5)
+    padding-bottom: (2% / 6.5)
+
+#pl1
     border-radius: $rond
-    scale: 0.9
+    img
+        animation: player-animate 2s linear infinite
+        width: 110%
+
+#pl2
+    border-radius: $rond
+    img
+        animation: player-animate 2s linear infinite
+        width: 110%
+
+#pl3
+    border-radius: $rond
+    img
+        animation: player-animate 2s linear infinite
+        width: 110%
+
+#pl4
+    border-radius: $rond
+    img
+        animation: player-animate 2s linear infinite
+        width: 110%
+
+.attracGauche
+    box-shadow: $lightSTS
+    transition: 3s ease-out
+    transform:  scale(0.2) rotate(720deg) //translate(-325px, 145px) 
+.attracDroite
+    box-shadow: $lightSTS
+    transition: 3s ease-out
+    transform:  scale(0.2) rotate(720deg) //translate(-325px, 145px) 
+.attracHaut
+    box-shadow: $gridEditor
+    transition: 3s ease-out
+    transform:  scale(0.2) rotate(720deg) //translate(-255px, 155px)
+.attracBas
+    box-shadow: $gridEditor
+    transition: 3s ease-out
+    transform:  scale(0.2) rotate(720deg) //translate(-265px, 145px) 
+
+.gauche
+    transition: 500ms
+    transform:  rotate(25deg) translate(3px,-5px) scale(1)
+.droite
+    transition: 500ms
+    transform:  rotate(205deg) translate(-3px,-3px) scale(1)
+.haut
+    transition: 500ms
+    transform:  rotate(120deg) translate(0px,-10px) scale(1)
+.bas
+    transition: 500ms
+    transform:  rotate(300deg) translate(-2px,0px) scale(1)
+
+@keyframes player-animate
+    0% 
+        transform: scale(1) translate(0,0)
+    25%
+        transform: scale(1.1) translate(3px,-2px)
+    50% 
+        transform: scale(0.9) translate(2px,3px)
+    75% 
+        transform: scale(1.1) translate(-3px,-2px)
+    100% 
+        transform: scale(1) translate(0,0)
+
+
+// --- Galaxies ---
+.Gl
+    z-index: 1
+    width: 70%
+    
     img
         width: 100%
-        height: 100%
-        border-radius: $rond 
+        padding-bottom: 100%  // Cela maintiendra le rapport hauteur/largeur de 1:1 
+        border-radius: $rond
+        box-shadow: $gridEditor
+        background: url('assets/img/Galaxy01.png')
+        background-size: 100%
+        background-repeat: no-repeat
+        background-position: center
         animation: galaxy-rotate 30s linear infinite
 
-.PE
-    box-shadow: $softLight
-    border-radius: $rond
-    img
-        width: 100%
-        height: 100%
-        border-radius: $rond 
-        animation: galaxy-rotate 30s linear infinite
+.elemGauche
+    transition: 3s ease-in
+    transform:  translate(75px,0px) scale(0) rotate(720deg)
+.elemDroite
+    transition: 3s ease-in
+    transform:  translate(-75px,0px) scale(0) rotate(720deg)
+.elemHaut
+    transition: 3s ease-in
+    transform:  translate(0px, 67px) scale(0) rotate(720deg)
+.elemBas
+    transition: 3s ease-in
+    transform:  translate(0px,-67px) scale(0) rotate(720deg)
 
 
+// --- Planetes ---
 @keyframes planete-rotate 
     0% 
-        //-webkit-transform: translate3d(0,0,0) rotate(0deg)
-        transform: rotate(0deg)
+        box-shadow: $gridEditor
+        transform: rotate(0deg) scale(1)
+    12%
+        box-shadow: $blackhole1
+        transform: rotate(45deg) scale(0.8)
+    25%
+        box-shadow: $lightSTS
+        transform: rotate(90deg) scale(0.7)
+    37%
+        box-shadow: $blackhole1
+        transform: rotate(135deg) scale(0.9)
+    50%
+        box-shadow: $gridEditor
+        transform: rotate(180deg) scale(0.8)
+    62%
+        box-shadow: $blackhole1
+        transform: rotate(225deg) scale(0.7)
+    75%
+        box-shadow: $lightSTS
+        transform: rotate(270deg) scale(0.9)
+    87%
+        box-shadow: $blackhole1
+        transform: srotate(315deg) scale(0.6)
     100% 
-        transform: rotate(-360deg)
+        box-shadow: $gridEditor
+        transform: rotate(360deg) scale(1)
 
-.E
-    z-index: 1
-    //background: $fondBlue
-    overflow: hidden
-    box-shadow: $shadow
-    border-radius: $rond 
-    transition: 250ms
-    transform: translate(0,0)
-    scale: 0.7
-
+.Bn
+    width: 80%
     img
-        width: 110%
-        height: 110%
-        border-radius: $rond 
-        animation: planete-rotate 20s linear infinite
+        box-shadow: $softLight
+        border-radius: $rond
+        animation: planete-rotate 10s linear infinite
+        width: 100%
+        padding-top: 50% 
+        padding-bottom: 50% 
+        transform: scale(1)
 
-.F
-    z-index: 2
-    background: url('assets/img/starship.png')
-    background-size: 130%
+.Bn_vie
+    background: url('assets/img/planet-bleue.png')
+    background-size: 100%
     background-repeat: no-repeat
     background-position: center
-    //border-radius: $rond
-    //box-shadow: $light
-    transition: 250ms
-    transform:  rotate(0deg) translate(0,0)
-    scale: 1
+
+.Bn_bigbang
+    background: url('assets/img/planet-rouge.png')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+.Bn_portee
+    background: url('assets/img/planet-jaune.png')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+.Bn_vitesse
+    background: url('assets/img/planet-grise.png')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+.Bn_5
+    background: url('assets/img/planet-verte.png')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+.Bn_6
+    background: url('assets/img/planet-rose.png')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+// --- BigBang ---
+.Bb
+    width: 65%
+    padding-bottom: 65% // Cela maintiendra le rapport hauteur/largeur de 1:1 
+    // box-shadow: $softLight
+    border-radius: $rond
+    background: url('assets/img/blackHole.webp')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+    animation: black-hole 2s linear infinite
+
+@keyframes black-hole
+    0% 
+        transform: rotate(0deg)
+        box-shadow: $gridEditor
+    50%
+        box-shadow: $blackhole2
+    100% 
+        transform: rotate(360deg) 
+        box-shadow: $gridEditor
+
+
+// --- Messages ---
+.rotate-message
+    position: absolute
+
+    width: 35vw
+    height: 35vw
+
+    border-radius: $rond
+    background: $fondBilleLin 
+    animation: gameMessage 4s linear infinite
+
+    background: url('assets/img/blackHole.webp')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+
+    opacity: 0
+
+.game-message
+    z-index: 2
+    position: absolute
+
+    width: 35vw
+    height: 35vw
+
+    border-radius: $rond
+    // box-shadow: $softLight
+    background: $fondBlackTrans 
+    border: $borderWhite
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    color: $yellow
+
+    p
+        font-size: nth($fontSizes, 3)
+        color: $lightblue
+
+@keyframes gameMessage
+    0% 
+        transform: rotate(0deg)
+        box-shadow: $gridEditor
+        opacity: 0
+    25%
+        box-shadow: $blackhole4
+        opacity: 0.3
+    50%
+        box-shadow: $gridEditor
+        opacity: 0.5
+    75%
+        box-shadow: $blackhole2
+        opacity: 0.3
+    100% 
+        transform: rotate(360deg)
+        box-shadow: $gridEditor
+        opacity: 0

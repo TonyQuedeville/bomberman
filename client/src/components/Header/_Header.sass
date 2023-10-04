@@ -7,9 +7,9 @@
     */
 
 nav  
-    width: 99.4%
+    width: 99.6%
     max-height: 75px
-    margin: 5px 5px 
+    margin: 3px
     background: $fondNavFoot
     box-shadow: $shadow
     border: $borderWhite
@@ -18,13 +18,15 @@ nav
     display: flex
     justify-content: space-around
     align-items: center 
-    //position: fixed
     color: $white  
     height: 48px
 
 #icnSTS
     width: 30px
     animation: pendule 2s linear infinite
+
+#title
+    animation: floating 25s linear infinite
 
 @keyframes pendule
     0% 
@@ -36,3 +38,22 @@ nav
         transform: rotate(-10deg)
     100% 
         transform: rotate(0deg)
+
+@keyframes floating
+    0% 
+        //-webkit-transform: rotate(0deg)
+        transform: rotate(0deg) translate(0px) scale(1)
+    18%
+        transform: translate(20px) scale(0.9)
+    25%
+        transform: rotate(3deg) scale(0.7)
+    33%
+        transform: rotate(2deg) translate(0px) scale(1)
+    45%
+        transform: translate(-20px) scale(0.8)
+    66%
+        transform: rotate(-2deg) translate(0px) scale(1)
+    75%
+        transform: rotate(2deg) translate(10px) scale(0.9)
+    100% 
+        transform: rotate(0deg) translate(0px) scale(1)

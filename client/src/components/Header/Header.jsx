@@ -32,7 +32,6 @@ const Header = () => {
 	
 	function disconnect() {
 		socket.disconnect();
-		// socket.emit('userDisconnect', pseudo)
 		dispatch(setIsConnected(false))
 		dispatch(updateUserData({pseudo: ''}))
 		setPseudo('')
@@ -74,7 +73,7 @@ const Header = () => {
 				/>
 			</div>
 
-			<h2> Bomberman </h2>
+			<h2 id="title"> Black Hole </h2>
 
 			<div className='horizontal'>
 				<img id="icnSTS" src={IcnSTS} alt="Icone STS" />

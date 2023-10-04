@@ -8,39 +8,30 @@
 
 //-------------------------------------------------------
 
+#appspace
+    display: flex
+    justify-content: center
+    align-items: center 
+    flex-direction: row
+    width: 99.8%
+    background: $fondContainerTrans
+
 #gamepage // Page game et tchat
     display: flex
     justify-content: center
     align-items: center 
     flex-direction: row
-
-    width: 99.4%
-    height: 91.5vh
-    margin: 5px 5px 
-
-    @include xl
-        @include paysage
-            margin-top: 5px
-            flex-direction: row
-            width: 100%
-            height: 98vh
-            
-    @include portrait
-        flex-direction: column
-        height: 97vh
+    width: 75vw
+    height: 92.5vh
+    margin: 2px 2px 
+    padding: 2px
+    border: $borderWhite
+    border-radius: $radius
+    background: $fondContainerTrans
 
 #gamespace // espace de jeu
-    z-index: 1
     display: flex
     align-items: center
     justify-content: center
     color:  $lightblue
     font-size: nth($fontSizes, 1)
-    width: 85%
-    height: 93vh
-    touch-action: manipulation
-
-    // background: $fondContainerTrans
-    box-shadow: $shadow
-    border: $borderWhite
-    border-radius: $radius

@@ -19,16 +19,18 @@ const Home = () => {
       <div className="narration">
         <p>La plupart des jeux vidéos sont sujet à violence et destruction. Il succitent l'agressivité et</p>
         <p>favorisent l'ego par la dopamine que procurre la victoire.</p>
-        <br />
         <p>Bomberman ne fait pas exeption. Le personnage pose des bombes pour detruire son environement.</p>
-        <p>Voici Bomberman revue et corrigé. Le personnage évolu dans l'Univers 01 et pose des planetes bleues</p>
-        <p>pour apporter la vie plutôt que de la détruire.</p>
-        <p>Mais il faut savoir accepter de ne pas réussir à tous les coups. Si vous ne vous éloigner pas, la vie</p>
-        <p>ne pourra pas se développer et le temps de vos efforts fournis serat perdues progréssivement.</p>
+        <p>Voici Bomberman revue et corrigé.</p>
         <br />
         <br />
+        <p> Votre vaisseau évolu dans l'Univers 01 et pose des trous noirs atomiques qui engloutissent les galaxies</p>
+        <p> à proximité et provoquent un big bang. Mais il faut s'en éloigner pour rester en vie.</p> 
+        <p>De ce big bang, des planètes naissent et certaines apportent la vie. D'autres apportent des puissances</p>
+        <p>inconnues que vous pourrez exploiter.</p>
         <br />
-        <p>Utilisez les flèches du clavier pour déplacer votre avatar. (gauche, droite, haut, bas)</p>
+        <br />
+        <p>Utilisez les flèches du clavier pour déplacer votre vaisseau. (gauche, droite, haut, bas)</p>
+        <p>La barre espace permet de poser vos atomes.</p>
         <p>Une partie peu se jouer jusqu'à 4.</p>
         <p>Vous pouvez tchater avec les autres spectateurs en attendant votre tour.</p>
       </div>

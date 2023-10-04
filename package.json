@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "Projet Zone01 socket.io ReactJS",
   "main": "index.js",
-  "scripts": {
-    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
-    "start-server": "node server/index.js",
-    "start-client": "cd client && yarn start"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TonyQuedeville/bomberman.git"
@@ -22,6 +17,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "express": "^4.18.2",
+    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "socket.io": "^4.7.2"

@@ -10,9 +10,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { socket } from '../../socket';
 
 const initialValues = {
+    socketId: '',
     pseudo: '',
     isConnected: false,
-    gameId: 1,
+    gameName: '',
 }
 
 const userSlice = createSlice({
@@ -30,6 +31,14 @@ const userSlice = createSlice({
             state.isConnected = action.payload
             socket.connect() // connection au tchat
         },
+        
+        setSocketId: (state, action) => {
+            state.socketId = action.payload
+        },
+        
+        setGameName: (state, action) => {
+            state.gameName = action.payload
+        },
 
         handleLogout:() => {
             socket.disconnect() // déconnection du tchat
@@ -41,6 +50,8 @@ const userSlice = createSlice({
 export const { 
     updateUserData, 
     setIsConnected,
+    setSocketId,
+    setGameName,
     handleLogout 
 } = userSlice.actions
 

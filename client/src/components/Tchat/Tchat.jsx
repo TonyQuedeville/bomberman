@@ -7,17 +7,18 @@
 */
 
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { updateGameData, setPlayers, setIsPlay, setNbPlayer } from '../../redux/reducers/gameReducer'
+import { useDispatch } from 'react-redux'
+import { updateUserData, setIsConnected, setSocketId, setGameId, setGameName } from '../../redux/reducers/userReducer'
 import { socket } from '../../socket'
 import TextArea from '../TextArea/TextArea.jsx'
 import Bouton from '../Bouton/Bouton.jsx'
 
-const Tchat = () => {
-	const user = useSelector(state => state.user)
-	const game = useSelector(state => state.game)
-	// console.log("tchat players:", game.players);
-	// console.log("tchat nbPlayer:", game.nbPlayer);
+const Tchat = ({user, game}) => {
+	// const user = useSelector(state => state.user)
+	// const game = useSelector(state => state.game)
+	// console.log("user:", user);
+	// console.log("game", game);
+
 	const dispatch = useDispatch()
 	const [message, setMessage] = useState('')
 	const [dataMessages, setDataMessages] = useState([])
@@ -39,37 +40,19 @@ const Tchat = () => {
 	// Messages server
 	useEffect(() => {
 		// Réception de la liste des utilisateurs connectés du serveur
-		socket.on('connectedUsersList', (userList) => {
+		socket.on('connectedUsersList', (userList, socketId) => {
 			setUserListConnect(userList)
+		})
+		
+		socket.on('socketId', (socketId) => {
+			dispatch(setSocketId(socketId))
 		})
 
 		// Reception des messages
 		socket.on('message', (dataMessage) => {
 			setDataMessages(previous => [dataMessage, ...previous])
 		})
-		socket.on('notif', (dataMessage) => {
-			setDataMessages(previous => [dataMessage, ...previous])
-		})
-
-		
-
-		/* --- Instructions de jeu retournées par le server --- */
-	
-		// mise à jour des participants à une partie aprés handlePlay
-		socket.on('setPlayers', (data) => {
-			const players = []
-			for (const key in data.players.game_1) {
-				if (data.players.game_1.hasOwnProperty(key)) { // Vérifiez si la propriété appartient à l'objet lui-même (et non à ses prototypes)
-					const value = data.players.game_1[key];
-					players.push(value)
-				}
-			}
-			dispatch(setPlayers(players))
-			dispatch(setNbPlayer(players.length))
-		})
-
 	}, [dispatch])
-
 
 	const handlePlay = () => {
 		socket.emit('joinRoom', {roomName: "game_" + game.gameId, user: user.pseudo});
@@ -88,7 +71,7 @@ const Tchat = () => {
 				value={message}
 				onChange={handleChange}
 				onKeyDown={handleKeyDown}
-				disabled={false}
+				disabled={user.gameName !== ''}
 			/>
 
 			<div id='users-conv'>
@@ -96,7 +79,7 @@ const Tchat = () => {
 					<Bouton 
 						onClick={handlePlay} 
 						text={"Jouer"} 
-						disabled={game.isPlay || !user.isConnected || game.nbPlayer >= 4} 
+						disabled={game.isPlay || !user.isConnected || game.nbPlayers >= 4 || user.gameName !== ''} 
 						id={"play-button"} 
 						name={"play"}
 					/>

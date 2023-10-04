@@ -37,6 +37,11 @@ Node.js:
   4 - "npm init -y" créé le package.json qui contient des informations sur le projet.
   5 - "npm install express socket.io"
   6 - "node index.js" Lancer le server
+  7 - "yarn add nodemon" relance le server à chaque modification du code
+      ajouter dans package.json du server:
+      "scripts": {
+        "start": "nodemon index.js"
+      },
 
 
 
@@ -49,6 +54,13 @@ Concurrently:
   "scripts": {
     "sass:watch": "sass --watch src/styles/style.scss:src/styles/style.css"
     "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
-    "start-server": "node server/index.js",
+    "start-server": "npm start",
     "start-client": "cd client && yarn start"
   }
+
+
+--- Test unitaire ---
+
+  1 - "npm install --save-dev jest"
+  2 - créer le ou les fichiers test "nomfichier.test.js"
+  3 - "npx jest" execute les tests
